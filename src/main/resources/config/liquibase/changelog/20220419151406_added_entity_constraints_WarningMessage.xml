@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity WarningMessage.
+    -->
+    <changeSet id="20220419151406-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="warning_rule_id"
+                                 baseTableName="warning_message"
+                                 constraintName="fk_warning_message__warning_rule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="warning_rule"/>
+    </changeSet>
+</databaseChangeLog>

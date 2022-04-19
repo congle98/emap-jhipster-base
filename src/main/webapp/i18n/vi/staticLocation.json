@@ -1,0 +1,33 @@
+{
+  "emapApp": {
+    "staticLocation": {
+      "home": {
+        "title": "Static Locations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Static Location",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Static Location",
+        "notFound": "No Static Locations found"
+      },
+      "created": "Một Static Location mới được tạo với định danh {{ param }}",
+      "updated": "Một Static Location cập nhật với định danh {{ param }}",
+      "deleted": "Một Static Location đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Static Location {{ id }}?"
+      },
+      "detail": {
+        "title": "Static Location"
+      },
+      "id": "ID",
+      "name": "Name",
+      "mcUserId": "Mc User Id",
+      "address": "Address",
+      "lat": "Lat",
+      "lng": "Lng",
+      "status": "Status",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid"
+    }
+  }
+}

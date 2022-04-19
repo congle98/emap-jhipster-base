@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="warningMessage">
+      <h2 data-cy="warningMessageDetailsHeading"><span jhiTranslate="emapApp.warningMessage.detail.title">Warning Message</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ warningMessage.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningMessage.mcUserId">Mc User Id</span></dt>
+        <dd>
+          <span>{{ warningMessage.mcUserId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningMessage.warningDistance">Warning Distance</span></dt>
+        <dd>
+          <span>{{ warningMessage.warningDistance }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningMessage.showWarningCircle">Show Warning Circle</span></dt>
+        <dd>
+          <span>{{ warningMessage.showWarningCircle }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningMessage.showWarningMessage">Show Warning Message</span></dt>
+        <dd>
+          <span>{{ warningMessage.showWarningMessage }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningMessage.warningMessage">Warning Message</span></dt>
+        <dd>
+          <span>{{ warningMessage.warningMessage }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningMessage.sendWarningMessageToMc">Send Warning Message To Mc</span></dt>
+        <dd>
+          <span>{{ warningMessage.sendWarningMessageToMc }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningMessage.createDate">Create Date</span></dt>
+        <dd>
+          <span>{{ warningMessage.createDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningMessage.createUid">Create Uid</span></dt>
+        <dd>
+          <span>{{ warningMessage.createUid }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningMessage.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ warningMessage.lastUpdate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningMessage.lastUpdateUid">Last Update Uid</span></dt>
+        <dd>
+          <span>{{ warningMessage.lastUpdateUid }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningMessage.warningRule">Warning Rule</span></dt>
+        <dd>
+          <div *ngIf="warningMessage.warningRule">
+            <a [routerLink]="['/warning-rule', warningMessage.warningRule?.id, 'view']">{{ warningMessage.warningRule?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/warning-message', warningMessage.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

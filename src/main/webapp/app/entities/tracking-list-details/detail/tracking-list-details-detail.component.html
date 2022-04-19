@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="trackingListDetails">
+      <h2 data-cy="trackingListDetailsDetailsHeading">
+        <span jhiTranslate="emapApp.trackingListDetails.detail.title">Tracking List Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ trackingListDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.trackingListDetails.createDate">Create Date</span></dt>
+        <dd>
+          <span>{{ trackingListDetails.createDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.trackingListDetails.createUid">Create Uid</span></dt>
+        <dd>
+          <span>{{ trackingListDetails.createUid }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.trackingListDetails.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ trackingListDetails.lastUpdate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.trackingListDetails.lastUpdateUid">Last Update Uid</span></dt>
+        <dd>
+          <span>{{ trackingListDetails.lastUpdateUid }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.trackingListDetails.trackingList">Tracking List</span></dt>
+        <dd>
+          <div *ngIf="trackingListDetails.trackingList">
+            <a [routerLink]="['/tracking-list', trackingListDetails.trackingList?.id, 'view']">{{
+              trackingListDetails.trackingList?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="emapApp.trackingListDetails.mcTarget">Mc Target</span></dt>
+        <dd>
+          <div *ngIf="trackingListDetails.mcTarget">
+            <a [routerLink]="['/target', trackingListDetails.mcTarget?.id, 'view']">{{ trackingListDetails.mcTarget?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tracking-list-details', trackingListDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

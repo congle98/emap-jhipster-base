@@ -1,0 +1,161 @@
+<div>
+  <h2 id="page-heading" data-cy="WarningRuleHeading">
+    <span jhiTranslate="emapApp.warningRule.home.title">Warning Rules</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="emapApp.warningRule.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-warning-rule"
+        [routerLink]="['/warning-rule/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="emapApp.warningRule.home.createLabel"> Create a new Warning Rule </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="warningRules?.length === 0">
+    <span jhiTranslate="emapApp.warningRule.home.notFound">No warningRules found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="warningRules && warningRules.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="name"><span jhiTranslate="emapApp.warningRule.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="mcUserId">
+            <span jhiTranslate="emapApp.warningRule.mcUserId">Mc User Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="delayCheck">
+            <span jhiTranslate="emapApp.warningRule.delayCheck">Delay Check</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="delayCheckUnit">
+            <span jhiTranslate="emapApp.warningRule.delayCheckUnit">Delay Check Unit</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="conditionType">
+            <span jhiTranslate="emapApp.warningRule.conditionType">Condition Type</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="includeMcCampaignId">
+            <span jhiTranslate="emapApp.warningRule.includeMcCampaignId">Include Mc Campaign Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="includeMcTargetId">
+            <span jhiTranslate="emapApp.warningRule.includeMcTargetId">Include Mc Target Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="warningDistance">
+            <span jhiTranslate="emapApp.warningRule.warningDistance">Warning Distance</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="showWarningCircle">
+            <span jhiTranslate="emapApp.warningRule.showWarningCircle">Show Warning Circle</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="showWarningMessage">
+            <span jhiTranslate="emapApp.warningRule.showWarningMessage">Show Warning Message</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="warningMessage">
+            <span jhiTranslate="emapApp.warningRule.warningMessage">Warning Message</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="sendWarningMessageToMc">
+            <span jhiTranslate="emapApp.warningRule.sendWarningMessageToMc">Send Warning Message To Mc</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <span jhiTranslate="emapApp.warningRule.status">Status</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createDate">
+            <span jhiTranslate="emapApp.warningRule.createDate">Create Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createUid">
+            <span jhiTranslate="emapApp.warningRule.createUid">Create Uid</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastUpdate">
+            <span jhiTranslate="emapApp.warningRule.lastUpdate">Last Update</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastUpdateUid">
+            <span jhiTranslate="emapApp.warningRule.lastUpdateUid">Last Update Uid</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let warningRule of warningRules; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/warning-rule', warningRule.id, 'view']">{{ warningRule.id }}</a>
+          </td>
+          <td>{{ warningRule.name }}</td>
+          <td>{{ warningRule.mcUserId }}</td>
+          <td>{{ warningRule.delayCheck }}</td>
+          <td>{{ warningRule.delayCheckUnit }}</td>
+          <td>{{ warningRule.conditionType }}</td>
+          <td>{{ warningRule.includeMcCampaignId }}</td>
+          <td>{{ warningRule.includeMcTargetId }}</td>
+          <td>{{ warningRule.warningDistance }}</td>
+          <td>{{ warningRule.showWarningCircle }}</td>
+          <td>{{ warningRule.showWarningMessage }}</td>
+          <td>{{ warningRule.warningMessage }}</td>
+          <td>{{ warningRule.sendWarningMessageToMc }}</td>
+          <td>{{ warningRule.status }}</td>
+          <td>{{ warningRule.createDate | formatMediumDatetime }}</td>
+          <td>{{ warningRule.createUid }}</td>
+          <td>{{ warningRule.lastUpdate | formatMediumDatetime }}</td>
+          <td>{{ warningRule.lastUpdateUid }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/warning-rule', warningRule.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/warning-rule', warningRule.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(warningRule)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="warningRules && warningRules.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

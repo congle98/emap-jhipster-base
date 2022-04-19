@@ -1,0 +1,30 @@
+{
+  "emapApp": {
+    "coordinatesDetails": {
+      "home": {
+        "title": "Coordinates Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Coordinates Details",
+        "createOrEditLabel": "Create or edit a Coordinates Details",
+        "notFound": "No Coordinates Details found"
+      },
+      "created": "A new Coordinates Details is created with identifier {{ param }}",
+      "updated": "A Coordinates Details is updated with identifier {{ param }}",
+      "deleted": "A Coordinates Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Coordinates Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Coordinates Details"
+      },
+      "id": "ID",
+      "signalConnectionStrength": "Signal Connection Strength",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid",
+      "coordinate": "Coordinate",
+      "object": "Object"
+    }
+  }
+}

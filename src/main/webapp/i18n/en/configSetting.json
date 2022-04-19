@@ -1,0 +1,44 @@
+{
+  "emapApp": {
+    "configSetting": {
+      "home": {
+        "title": "Config Settings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Config Setting",
+        "createOrEditLabel": "Create or edit a Config Setting",
+        "notFound": "No Config Settings found"
+      },
+      "created": "A new Config Setting is created with identifier {{ param }}",
+      "updated": "A Config Setting is updated with identifier {{ param }}",
+      "deleted": "A Config Setting is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Config Setting {{ id }}?"
+      },
+      "detail": {
+        "title": "Config Setting"
+      },
+      "id": "ID",
+      "sourceType": "Source Type",
+      "mcUserId": "Mc User Id",
+      "tmlUserId": "Tml User Id",
+      "vmSysDefaultModeConf": "Vm Sys Default Mode Conf",
+      "vmSysSyncCycleConf": "Vm Sys Sync Cycle Conf",
+      "vmSysSyncCycleUnitConf": "Vm Sys Sync Cycle Unit Conf",
+      "vmSysTargetDisplayNameConf": "Vm Sys Target Display Name Conf",
+      "vmLiveDefaultModeConf": "Vm Live Default Mode Conf",
+      "vmLiveDefaultTimerangeConf": "Vm Live Default Timerange Conf",
+      "vmLivePositionCycleConf": "Vm Live Position Cycle Conf",
+      "vmLivePositionCycleUnitConf": "Vm Live Position Cycle Unit Conf",
+      "vmLiveTrackingAmplitudeConf": "Vm Live Tracking Amplitude Conf",
+      "vmLiveTrackingAmplitudeUnitConf": "Vm Live Tracking Amplitude Unit Conf",
+      "sarSysSyncCycleConf": "Sar Sys Sync Cycle Conf",
+      "sarSysSyncCycleUnitConf": "Sar Sys Sync Cycle Unit Conf",
+      "sarSysObjectDisplayName01Conf": "Sar Sys Object Display Name 01 Conf",
+      "sarSysObjectDisplayName02Conf": "Sar Sys Object Display Name 02 Conf",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid"
+    }
+  }
+}

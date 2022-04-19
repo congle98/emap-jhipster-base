@@ -1,0 +1,30 @@
+{
+  "emapApp": {
+    "coordinatesDetails": {
+      "home": {
+        "title": "Coordinates Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Coordinates Details",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Coordinates Details",
+        "notFound": "No Coordinates Details found"
+      },
+      "created": "Một Coordinates Details mới được tạo với định danh {{ param }}",
+      "updated": "Một Coordinates Details cập nhật với định danh {{ param }}",
+      "deleted": "Một Coordinates Details đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Coordinates Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Coordinates Details"
+      },
+      "id": "ID",
+      "signalConnectionStrength": "Signal Connection Strength",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid",
+      "coordinate": "Coordinate",
+      "object": "Object"
+    }
+  }
+}

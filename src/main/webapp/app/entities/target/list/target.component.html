@@ -1,0 +1,116 @@
+<div>
+  <h2 id="page-heading" data-cy="TargetHeading">
+    <span jhiTranslate="emapApp.target.home.title">Targets</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="emapApp.target.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-target"
+        [routerLink]="['/target/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="emapApp.target.home.createLabel"> Create a new Target </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="targets?.length === 0">
+    <span jhiTranslate="emapApp.target.home.notFound">No targets found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="targets && targets.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="sourceType">
+            <span jhiTranslate="emapApp.target.sourceType">Source Type</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="mcCampaingnId">
+            <span jhiTranslate="emapApp.target.mcCampaingnId">Mc Campaingn Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tmlCampaignId">
+            <span jhiTranslate="emapApp.target.tmlCampaignId">Tml Campaign Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="icon"><span jhiTranslate="emapApp.target.icon">Icon</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="color"><span jhiTranslate="emapApp.target.color">Color</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="createDate">
+            <span jhiTranslate="emapApp.target.createDate">Create Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createUid">
+            <span jhiTranslate="emapApp.target.createUid">Create Uid</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastUpdate">
+            <span jhiTranslate="emapApp.target.lastUpdate">Last Update</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastUpdateUid">
+            <span jhiTranslate="emapApp.target.lastUpdateUid">Last Update Uid</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let target of targets; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/target', target.id, 'view']">{{ target.id }}</a>
+          </td>
+          <td>{{ target.sourceType }}</td>
+          <td>{{ target.mcCampaingnId }}</td>
+          <td>{{ target.tmlCampaignId }}</td>
+          <td>{{ target.icon }}</td>
+          <td>{{ target.color }}</td>
+          <td>{{ target.createDate | formatMediumDatetime }}</td>
+          <td>{{ target.createUid }}</td>
+          <td>{{ target.lastUpdate | formatMediumDatetime }}</td>
+          <td>{{ target.lastUpdateUid }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/target', target.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/target', target.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(target)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="targets && targets.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

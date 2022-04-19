@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="coordinates">
+      <h2 data-cy="coordinatesDetailsHeading"><span jhiTranslate="emapApp.coordinates.detail.title">Coordinates</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ coordinates.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinates.sourceType">Source Type</span></dt>
+        <dd>
+          <span>{{ coordinates.sourceType }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinates.mcCampaingnId">Mc Campaingn Id</span></dt>
+        <dd>
+          <span>{{ coordinates.mcCampaingnId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinates.tmlCampaignId">Tml Campaign Id</span></dt>
+        <dd>
+          <span>{{ coordinates.tmlCampaignId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinates.lat">Lat</span></dt>
+        <dd>
+          <span>{{ coordinates.lat }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinates.lng">Lng</span></dt>
+        <dd>
+          <span>{{ coordinates.lng }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinates.radius">Radius</span></dt>
+        <dd>
+          <span>{{ coordinates.radius }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinates.openAngle">Open Angle</span></dt>
+        <dd>
+          <span>{{ coordinates.openAngle }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinates.directionalAngle">Directional Angle</span></dt>
+        <dd>
+          <span>{{ coordinates.directionalAngle }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinates.createDate">Create Date</span></dt>
+        <dd>
+          <span>{{ coordinates.createDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinates.createUid">Create Uid</span></dt>
+        <dd>
+          <span>{{ coordinates.createUid }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinates.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ coordinates.lastUpdate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinates.lastUpdateUid">Last Update Uid</span></dt>
+        <dd>
+          <span>{{ coordinates.lastUpdateUid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/coordinates', coordinates.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

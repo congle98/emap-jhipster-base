@@ -7,6 +7,16 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Thực thể",
+        "campaign": "Campaign",
+        "target": "Target",
+        "coordinates": "Coordinates",
+        "coordinatesDetails": "Coordinates Details",
+        "trackingList": "Tracking List",
+        "trackingListDetails": "Tracking List Details",
+        "staticLocation": "Static Location",
+        "warningRule": "Warning Rule",
+        "warningMessage": "Warning Message",
+        "configSetting": "Config Setting",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

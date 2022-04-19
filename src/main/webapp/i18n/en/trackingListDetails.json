@@ -1,0 +1,29 @@
+{
+  "emapApp": {
+    "trackingListDetails": {
+      "home": {
+        "title": "Tracking List Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Tracking List Details",
+        "createOrEditLabel": "Create or edit a Tracking List Details",
+        "notFound": "No Tracking List Details found"
+      },
+      "created": "A new Tracking List Details is created with identifier {{ param }}",
+      "updated": "A Tracking List Details is updated with identifier {{ param }}",
+      "deleted": "A Tracking List Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tracking List Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Tracking List Details"
+      },
+      "id": "ID",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid",
+      "trackingList": "Tracking List",
+      "mcTarget": "Mc Target"
+    }
+  }
+}

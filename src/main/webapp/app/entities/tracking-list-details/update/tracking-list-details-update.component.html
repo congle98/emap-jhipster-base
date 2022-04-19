@@ -1,0 +1,207 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tracking-list-details-heading"
+        data-cy="TrackingListDetailsCreateUpdateHeading"
+        jhiTranslate="emapApp.trackingListDetails.home.createOrEditLabel"
+      >
+        Create or edit a Tracking List Details
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.trackingListDetails.createDate" for="field_createDate">Create Date</label>
+          <div class="d-flex">
+            <input
+              id="field_createDate"
+              data-cy="createDate"
+              type="datetime-local"
+              class="form-control"
+              name="createDate"
+              formControlName="createDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('createDate')!.invalid && (editForm.get('createDate')!.dirty || editForm.get('createDate')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createDate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('createDate')?.errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.trackingListDetails.createUid" for="field_createUid">Create Uid</label>
+          <input type="text" class="form-control" name="createUid" id="field_createUid" data-cy="createUid" formControlName="createUid" />
+          <div *ngIf="editForm.get('createUid')!.invalid && (editForm.get('createUid')!.dirty || editForm.get('createUid')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createUid')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createUid')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.trackingListDetails.lastUpdate" for="field_lastUpdate">Last Update</label>
+          <div class="d-flex">
+            <input
+              id="field_lastUpdate"
+              data-cy="lastUpdate"
+              type="datetime-local"
+              class="form-control"
+              name="lastUpdate"
+              formControlName="lastUpdate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('lastUpdate')!.invalid && (editForm.get('lastUpdate')!.dirty || editForm.get('lastUpdate')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lastUpdate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('lastUpdate')?.errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.trackingListDetails.lastUpdateUid" for="field_lastUpdateUid"
+            >Last Update Uid</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastUpdateUid"
+            id="field_lastUpdateUid"
+            data-cy="lastUpdateUid"
+            formControlName="lastUpdateUid"
+          />
+          <div
+            *ngIf="
+              editForm.get('lastUpdateUid')!.invalid && (editForm.get('lastUpdateUid')!.dirty || editForm.get('lastUpdateUid')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lastUpdateUid')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lastUpdateUid')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.trackingListDetails.trackingList" for="field_trackingList">Tracking List</label>
+          <select class="form-control" id="field_trackingList" data-cy="trackingList" name="trackingList" formControlName="trackingList">
+            <option *ngIf="editForm.get(['trackingList'])!.value == null" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="
+                trackingListOption.id === editForm.get('trackingList')!.value?.id ? editForm.get('trackingList')!.value : trackingListOption
+              "
+              *ngFor="let trackingListOption of trackingListsCollection; trackBy: trackTrackingListById"
+            >
+              {{ trackingListOption.id }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="
+            editForm.get(['trackingList'])!.invalid && (editForm.get(['trackingList'])!.dirty || editForm.get(['trackingList'])!.touched)
+          "
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['trackingList'])?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.trackingListDetails.mcTarget" for="field_mcTarget">Mc Target</label>
+          <select class="form-control" id="field_mcTarget" data-cy="mcTarget" name="mcTarget" formControlName="mcTarget">
+            <option *ngIf="editForm.get(['mcTarget'])!.value == null" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="targetOption.id === editForm.get('mcTarget')!.value?.id ? editForm.get('mcTarget')!.value : targetOption"
+              *ngFor="let targetOption of mcTargetsCollection; trackBy: trackTargetById"
+            >
+              {{ targetOption.id }}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get(['mcTarget'])!.invalid && (editForm.get(['mcTarget'])!.dirty || editForm.get(['mcTarget'])!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['mcTarget'])?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

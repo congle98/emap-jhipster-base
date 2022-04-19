@@ -1,0 +1,32 @@
+{
+  "emapApp": {
+    "campaign": {
+      "home": {
+        "title": "Campaigns",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Campaign",
+        "createOrEditLabel": "Create or edit a Campaign",
+        "notFound": "No Campaigns found"
+      },
+      "created": "A new Campaign is created with identifier {{ param }}",
+      "updated": "A Campaign is updated with identifier {{ param }}",
+      "deleted": "A Campaign is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Campaign {{ id }}?"
+      },
+      "detail": {
+        "title": "Campaign"
+      },
+      "id": "ID",
+      "sourceType": "Source Type",
+      "mcCampaingnId": "Mc Campaingn Id",
+      "tmlCampaignId": "Tml Campaign Id",
+      "icon": "Icon",
+      "color": "Color",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="target">
+      <h2 data-cy="targetDetailsHeading"><span jhiTranslate="emapApp.target.detail.title">Target</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ target.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.target.sourceType">Source Type</span></dt>
+        <dd>
+          <span>{{ target.sourceType }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.target.mcCampaingnId">Mc Campaingn Id</span></dt>
+        <dd>
+          <span>{{ target.mcCampaingnId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.target.tmlCampaignId">Tml Campaign Id</span></dt>
+        <dd>
+          <span>{{ target.tmlCampaignId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.target.icon">Icon</span></dt>
+        <dd>
+          <span>{{ target.icon }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.target.color">Color</span></dt>
+        <dd>
+          <span>{{ target.color }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.target.createDate">Create Date</span></dt>
+        <dd>
+          <span>{{ target.createDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.target.createUid">Create Uid</span></dt>
+        <dd>
+          <span>{{ target.createUid }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.target.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ target.lastUpdate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.target.lastUpdateUid">Last Update Uid</span></dt>
+        <dd>
+          <span>{{ target.lastUpdateUid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/target', target.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

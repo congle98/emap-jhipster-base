@@ -1,0 +1,29 @@
+{
+  "emapApp": {
+    "trackingList": {
+      "home": {
+        "title": "Tracking Lists",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Tracking List",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Tracking List",
+        "notFound": "No Tracking Lists found"
+      },
+      "created": "Một Tracking List mới được tạo với định danh {{ param }}",
+      "updated": "Một Tracking List cập nhật với định danh {{ param }}",
+      "deleted": "Một Tracking List đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Tracking List {{ id }}?"
+      },
+      "detail": {
+        "title": "Tracking List"
+      },
+      "id": "ID",
+      "mcUserId": "Mc User Id",
+      "type": "Type",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid"
+    }
+  }
+}

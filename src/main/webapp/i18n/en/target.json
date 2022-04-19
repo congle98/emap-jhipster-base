@@ -1,0 +1,32 @@
+{
+  "emapApp": {
+    "target": {
+      "home": {
+        "title": "Targets",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Target",
+        "createOrEditLabel": "Create or edit a Target",
+        "notFound": "No Targets found"
+      },
+      "created": "A new Target is created with identifier {{ param }}",
+      "updated": "A Target is updated with identifier {{ param }}",
+      "deleted": "A Target is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Target {{ id }}?"
+      },
+      "detail": {
+        "title": "Target"
+      },
+      "id": "ID",
+      "sourceType": "Source Type",
+      "mcCampaingnId": "Mc Campaingn Id",
+      "tmlCampaignId": "Tml Campaign Id",
+      "icon": "Icon",
+      "color": "Color",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid"
+    }
+  }
+}

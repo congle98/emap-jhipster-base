@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="staticLocation">
+      <h2 data-cy="staticLocationDetailsHeading"><span jhiTranslate="emapApp.staticLocation.detail.title">Static Location</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ staticLocation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.staticLocation.name">Name</span></dt>
+        <dd>
+          <span>{{ staticLocation.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.staticLocation.mcUserId">Mc User Id</span></dt>
+        <dd>
+          <span>{{ staticLocation.mcUserId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.staticLocation.address">Address</span></dt>
+        <dd>
+          <span>{{ staticLocation.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.staticLocation.lat">Lat</span></dt>
+        <dd>
+          <span>{{ staticLocation.lat }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.staticLocation.lng">Lng</span></dt>
+        <dd>
+          <span>{{ staticLocation.lng }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.staticLocation.status">Status</span></dt>
+        <dd>
+          <span>{{ staticLocation.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.staticLocation.createDate">Create Date</span></dt>
+        <dd>
+          <span>{{ staticLocation.createDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.staticLocation.createUid">Create Uid</span></dt>
+        <dd>
+          <span>{{ staticLocation.createUid }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.staticLocation.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ staticLocation.lastUpdate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.staticLocation.lastUpdateUid">Last Update Uid</span></dt>
+        <dd>
+          <span>{{ staticLocation.lastUpdateUid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/static-location', staticLocation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

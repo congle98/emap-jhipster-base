@@ -1,0 +1,35 @@
+{
+  "emapApp": {
+    "coordinates": {
+      "home": {
+        "title": "Coordinates",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Coordinates",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Coordinates",
+        "notFound": "No Coordinates found"
+      },
+      "created": "Một Coordinates mới được tạo với định danh {{ param }}",
+      "updated": "Một Coordinates cập nhật với định danh {{ param }}",
+      "deleted": "Một Coordinates đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Coordinates {{ id }}?"
+      },
+      "detail": {
+        "title": "Coordinates"
+      },
+      "id": "ID",
+      "sourceType": "Source Type",
+      "mcCampaingnId": "Mc Campaingn Id",
+      "tmlCampaignId": "Tml Campaign Id",
+      "lat": "Lat",
+      "lng": "Lng",
+      "radius": "Radius",
+      "openAngle": "Open Angle",
+      "directionalAngle": "Directional Angle",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid"
+    }
+  }
+}

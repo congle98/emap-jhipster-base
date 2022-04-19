@@ -1,0 +1,40 @@
+{
+  "emapApp": {
+    "warningRule": {
+      "home": {
+        "title": "Warning Rules",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Warning Rule",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Warning Rule",
+        "notFound": "No Warning Rules found"
+      },
+      "created": "Một Warning Rule mới được tạo với định danh {{ param }}",
+      "updated": "Một Warning Rule cập nhật với định danh {{ param }}",
+      "deleted": "Một Warning Rule đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Warning Rule {{ id }}?"
+      },
+      "detail": {
+        "title": "Warning Rule"
+      },
+      "id": "ID",
+      "name": "Name",
+      "mcUserId": "Mc User Id",
+      "delayCheck": "Delay Check",
+      "delayCheckUnit": "Delay Check Unit",
+      "conditionType": "Condition Type",
+      "includeMcCampaignId": "Include Mc Campaign Id",
+      "includeMcTargetId": "Include Mc Target Id",
+      "warningDistance": "Warning Distance",
+      "showWarningCircle": "Show Warning Circle",
+      "showWarningMessage": "Show Warning Message",
+      "warningMessage": "Warning Message",
+      "sendWarningMessageToMc": "Send Warning Message To Mc",
+      "status": "Status",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid"
+    }
+  }
+}

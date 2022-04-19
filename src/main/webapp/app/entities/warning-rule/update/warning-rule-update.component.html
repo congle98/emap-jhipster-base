@@ -1,0 +1,496 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-warning-rule-heading" data-cy="WarningRuleCreateUpdateHeading" jhiTranslate="emapApp.warningRule.home.createOrEditLabel">
+        Create or edit a Warning Rule
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('name')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.mcUserId" for="field_mcUserId">Mc User Id</label>
+          <input type="text" class="form-control" name="mcUserId" id="field_mcUserId" data-cy="mcUserId" formControlName="mcUserId" />
+          <div *ngIf="editForm.get('mcUserId')!.invalid && (editForm.get('mcUserId')!.dirty || editForm.get('mcUserId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('mcUserId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('mcUserId')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.delayCheck" for="field_delayCheck">Delay Check</label>
+          <input
+            type="number"
+            class="form-control"
+            name="delayCheck"
+            id="field_delayCheck"
+            data-cy="delayCheck"
+            formControlName="delayCheck"
+          />
+          <div *ngIf="editForm.get('delayCheck')!.invalid && (editForm.get('delayCheck')!.dirty || editForm.get('delayCheck')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('delayCheck')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('delayCheck')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.delayCheckUnit" for="field_delayCheckUnit">Delay Check Unit</label>
+          <input
+            type="text"
+            class="form-control"
+            name="delayCheckUnit"
+            id="field_delayCheckUnit"
+            data-cy="delayCheckUnit"
+            formControlName="delayCheckUnit"
+          />
+          <div
+            *ngIf="
+              editForm.get('delayCheckUnit')!.invalid && (editForm.get('delayCheckUnit')!.dirty || editForm.get('delayCheckUnit')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('delayCheckUnit')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('delayCheckUnit')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.conditionType" for="field_conditionType">Condition Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="conditionType"
+            id="field_conditionType"
+            data-cy="conditionType"
+            formControlName="conditionType"
+          />
+          <div
+            *ngIf="
+              editForm.get('conditionType')!.invalid && (editForm.get('conditionType')!.dirty || editForm.get('conditionType')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('conditionType')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('conditionType')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.includeMcCampaignId" for="field_includeMcCampaignId"
+            >Include Mc Campaign Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="includeMcCampaignId"
+            id="field_includeMcCampaignId"
+            data-cy="includeMcCampaignId"
+            formControlName="includeMcCampaignId"
+          />
+          <div
+            *ngIf="
+              editForm.get('includeMcCampaignId')!.invalid &&
+              (editForm.get('includeMcCampaignId')!.dirty || editForm.get('includeMcCampaignId')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('includeMcCampaignId')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.includeMcTargetId" for="field_includeMcTargetId"
+            >Include Mc Target Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="includeMcTargetId"
+            id="field_includeMcTargetId"
+            data-cy="includeMcTargetId"
+            formControlName="includeMcTargetId"
+          />
+          <div
+            *ngIf="
+              editForm.get('includeMcTargetId')!.invalid &&
+              (editForm.get('includeMcTargetId')!.dirty || editForm.get('includeMcTargetId')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('includeMcTargetId')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.warningDistance" for="field_warningDistance">Warning Distance</label>
+          <input
+            type="number"
+            class="form-control"
+            name="warningDistance"
+            id="field_warningDistance"
+            data-cy="warningDistance"
+            formControlName="warningDistance"
+          />
+          <div
+            *ngIf="
+              editForm.get('warningDistance')!.invalid &&
+              (editForm.get('warningDistance')!.dirty || editForm.get('warningDistance')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('warningDistance')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('warningDistance')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.showWarningCircle" for="field_showWarningCircle"
+            >Show Warning Circle</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="showWarningCircle"
+            id="field_showWarningCircle"
+            data-cy="showWarningCircle"
+            formControlName="showWarningCircle"
+          />
+          <div
+            *ngIf="
+              editForm.get('showWarningCircle')!.invalid &&
+              (editForm.get('showWarningCircle')!.dirty || editForm.get('showWarningCircle')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('showWarningCircle')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.showWarningMessage" for="field_showWarningMessage"
+            >Show Warning Message</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="showWarningMessage"
+            id="field_showWarningMessage"
+            data-cy="showWarningMessage"
+            formControlName="showWarningMessage"
+          />
+          <div
+            *ngIf="
+              editForm.get('showWarningMessage')!.invalid &&
+              (editForm.get('showWarningMessage')!.dirty || editForm.get('showWarningMessage')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('showWarningMessage')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.warningMessage" for="field_warningMessage">Warning Message</label>
+          <input
+            type="text"
+            class="form-control"
+            name="warningMessage"
+            id="field_warningMessage"
+            data-cy="warningMessage"
+            formControlName="warningMessage"
+          />
+          <div
+            *ngIf="
+              editForm.get('warningMessage')!.invalid && (editForm.get('warningMessage')!.dirty || editForm.get('warningMessage')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('warningMessage')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.sendWarningMessageToMc" for="field_sendWarningMessageToMc"
+            >Send Warning Message To Mc</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="sendWarningMessageToMc"
+            id="field_sendWarningMessageToMc"
+            data-cy="sendWarningMessageToMc"
+            formControlName="sendWarningMessageToMc"
+          />
+          <div
+            *ngIf="
+              editForm.get('sendWarningMessageToMc')!.invalid &&
+              (editForm.get('sendWarningMessageToMc')!.dirty || editForm.get('sendWarningMessageToMc')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sendWarningMessageToMc')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.status" for="field_status">Status</label>
+          <input type="checkbox" class="form-check" name="status" id="field_status" data-cy="status" formControlName="status" />
+          <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.createDate" for="field_createDate">Create Date</label>
+          <div class="d-flex">
+            <input
+              id="field_createDate"
+              data-cy="createDate"
+              type="datetime-local"
+              class="form-control"
+              name="createDate"
+              formControlName="createDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('createDate')!.invalid && (editForm.get('createDate')!.dirty || editForm.get('createDate')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createDate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('createDate')?.errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.createUid" for="field_createUid">Create Uid</label>
+          <input type="text" class="form-control" name="createUid" id="field_createUid" data-cy="createUid" formControlName="createUid" />
+          <div *ngIf="editForm.get('createUid')!.invalid && (editForm.get('createUid')!.dirty || editForm.get('createUid')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createUid')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createUid')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.lastUpdate" for="field_lastUpdate">Last Update</label>
+          <div class="d-flex">
+            <input
+              id="field_lastUpdate"
+              data-cy="lastUpdate"
+              type="datetime-local"
+              class="form-control"
+              name="lastUpdate"
+              formControlName="lastUpdate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('lastUpdate')!.invalid && (editForm.get('lastUpdate')!.dirty || editForm.get('lastUpdate')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lastUpdate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('lastUpdate')?.errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.warningRule.lastUpdateUid" for="field_lastUpdateUid">Last Update Uid</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastUpdateUid"
+            id="field_lastUpdateUid"
+            data-cy="lastUpdateUid"
+            formControlName="lastUpdateUid"
+          />
+          <div
+            *ngIf="
+              editForm.get('lastUpdateUid')!.invalid && (editForm.get('lastUpdateUid')!.dirty || editForm.get('lastUpdateUid')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lastUpdateUid')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lastUpdateUid')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

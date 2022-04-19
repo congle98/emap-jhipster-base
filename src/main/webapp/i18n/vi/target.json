@@ -1,0 +1,32 @@
+{
+  "emapApp": {
+    "target": {
+      "home": {
+        "title": "Targets",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Target",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Target",
+        "notFound": "No Targets found"
+      },
+      "created": "Một Target mới được tạo với định danh {{ param }}",
+      "updated": "Một Target cập nhật với định danh {{ param }}",
+      "deleted": "Một Target đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Target {{ id }}?"
+      },
+      "detail": {
+        "title": "Target"
+      },
+      "id": "ID",
+      "sourceType": "Source Type",
+      "mcCampaingnId": "Mc Campaingn Id",
+      "tmlCampaignId": "Tml Campaign Id",
+      "icon": "Icon",
+      "color": "Color",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid"
+    }
+  }
+}

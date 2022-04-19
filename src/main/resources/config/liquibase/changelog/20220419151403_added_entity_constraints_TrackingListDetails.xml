@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity TrackingListDetails.
+    -->
+    <changeSet id="20220419151403-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="tracking_list_id"
+                                 baseTableName="tracking_list_details"
+                                 constraintName="fk_tracking_list_details__tracking_list_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tracking_list"/>
+
+        <addForeignKeyConstraint baseColumnNames="mc_target_id"
+                                 baseTableName="tracking_list_details"
+                                 constraintName="fk_tracking_list_details__mc_target_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="target"/>
+    </changeSet>
+</databaseChangeLog>

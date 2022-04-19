@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="campaign">
+      <h2 data-cy="campaignDetailsHeading"><span jhiTranslate="emapApp.campaign.detail.title">Campaign</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ campaign.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.campaign.sourceType">Source Type</span></dt>
+        <dd>
+          <span>{{ campaign.sourceType }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.campaign.mcCampaingnId">Mc Campaingn Id</span></dt>
+        <dd>
+          <span>{{ campaign.mcCampaingnId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.campaign.tmlCampaignId">Tml Campaign Id</span></dt>
+        <dd>
+          <span>{{ campaign.tmlCampaignId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.campaign.icon">Icon</span></dt>
+        <dd>
+          <span>{{ campaign.icon }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.campaign.color">Color</span></dt>
+        <dd>
+          <span>{{ campaign.color }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.campaign.createDate">Create Date</span></dt>
+        <dd>
+          <span>{{ campaign.createDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.campaign.createUid">Create Uid</span></dt>
+        <dd>
+          <span>{{ campaign.createUid }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.campaign.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ campaign.lastUpdate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.campaign.lastUpdateUid">Last Update Uid</span></dt>
+        <dd>
+          <span>{{ campaign.lastUpdateUid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/campaign', campaign.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

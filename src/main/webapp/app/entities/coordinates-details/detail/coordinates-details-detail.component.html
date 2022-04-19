@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="coordinatesDetails">
+      <h2 data-cy="coordinatesDetailsDetailsHeading">
+        <span jhiTranslate="emapApp.coordinatesDetails.detail.title">Coordinates Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ coordinatesDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinatesDetails.signalConnectionStrength">Signal Connection Strength</span></dt>
+        <dd>
+          <span>{{ coordinatesDetails.signalConnectionStrength }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinatesDetails.createDate">Create Date</span></dt>
+        <dd>
+          <span>{{ coordinatesDetails.createDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinatesDetails.createUid">Create Uid</span></dt>
+        <dd>
+          <span>{{ coordinatesDetails.createUid }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinatesDetails.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ coordinatesDetails.lastUpdate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinatesDetails.lastUpdateUid">Last Update Uid</span></dt>
+        <dd>
+          <span>{{ coordinatesDetails.lastUpdateUid }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinatesDetails.coordinate">Coordinate</span></dt>
+        <dd>
+          <div *ngIf="coordinatesDetails.coordinate">
+            <a [routerLink]="['/coordinates', coordinatesDetails.coordinate?.id, 'view']">{{ coordinatesDetails.coordinate?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="emapApp.coordinatesDetails.object">Object</span></dt>
+        <dd>
+          <div *ngIf="coordinatesDetails.object">
+            <a [routerLink]="['/target', coordinatesDetails.object?.id, 'view']">{{ coordinatesDetails.object?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/coordinates-details', coordinatesDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="warningRule">
+      <h2 data-cy="warningRuleDetailsHeading"><span jhiTranslate="emapApp.warningRule.detail.title">Warning Rule</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ warningRule.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.name">Name</span></dt>
+        <dd>
+          <span>{{ warningRule.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.mcUserId">Mc User Id</span></dt>
+        <dd>
+          <span>{{ warningRule.mcUserId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.delayCheck">Delay Check</span></dt>
+        <dd>
+          <span>{{ warningRule.delayCheck }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.delayCheckUnit">Delay Check Unit</span></dt>
+        <dd>
+          <span>{{ warningRule.delayCheckUnit }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.conditionType">Condition Type</span></dt>
+        <dd>
+          <span>{{ warningRule.conditionType }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.includeMcCampaignId">Include Mc Campaign Id</span></dt>
+        <dd>
+          <span>{{ warningRule.includeMcCampaignId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.includeMcTargetId">Include Mc Target Id</span></dt>
+        <dd>
+          <span>{{ warningRule.includeMcTargetId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.warningDistance">Warning Distance</span></dt>
+        <dd>
+          <span>{{ warningRule.warningDistance }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.showWarningCircle">Show Warning Circle</span></dt>
+        <dd>
+          <span>{{ warningRule.showWarningCircle }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.showWarningMessage">Show Warning Message</span></dt>
+        <dd>
+          <span>{{ warningRule.showWarningMessage }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.warningMessage">Warning Message</span></dt>
+        <dd>
+          <span>{{ warningRule.warningMessage }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.sendWarningMessageToMc">Send Warning Message To Mc</span></dt>
+        <dd>
+          <span>{{ warningRule.sendWarningMessageToMc }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.status">Status</span></dt>
+        <dd>
+          <span>{{ warningRule.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.createDate">Create Date</span></dt>
+        <dd>
+          <span>{{ warningRule.createDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.createUid">Create Uid</span></dt>
+        <dd>
+          <span>{{ warningRule.createUid }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ warningRule.lastUpdate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.warningRule.lastUpdateUid">Last Update Uid</span></dt>
+        <dd>
+          <span>{{ warningRule.lastUpdateUid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/warning-rule', warningRule.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

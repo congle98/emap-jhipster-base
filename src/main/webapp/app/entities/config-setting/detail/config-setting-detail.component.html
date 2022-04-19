@@ -1,0 +1,112 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="configSetting">
+      <h2 data-cy="configSettingDetailsHeading"><span jhiTranslate="emapApp.configSetting.detail.title">Config Setting</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ configSetting.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.sourceType">Source Type</span></dt>
+        <dd>
+          <span>{{ configSetting.sourceType }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.mcUserId">Mc User Id</span></dt>
+        <dd>
+          <span>{{ configSetting.mcUserId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.tmlUserId">Tml User Id</span></dt>
+        <dd>
+          <span>{{ configSetting.tmlUserId }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.vmSysDefaultModeConf">Vm Sys Default Mode Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.vmSysDefaultModeConf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.vmSysSyncCycleConf">Vm Sys Sync Cycle Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.vmSysSyncCycleConf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.vmSysSyncCycleUnitConf">Vm Sys Sync Cycle Unit Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.vmSysSyncCycleUnitConf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.vmSysTargetDisplayNameConf">Vm Sys Target Display Name Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.vmSysTargetDisplayNameConf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.vmLiveDefaultModeConf">Vm Live Default Mode Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.vmLiveDefaultModeConf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.vmLiveDefaultTimerangeConf">Vm Live Default Timerange Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.vmLiveDefaultTimerangeConf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.vmLivePositionCycleConf">Vm Live Position Cycle Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.vmLivePositionCycleConf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.vmLivePositionCycleUnitConf">Vm Live Position Cycle Unit Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.vmLivePositionCycleUnitConf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.vmLiveTrackingAmplitudeConf">Vm Live Tracking Amplitude Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.vmLiveTrackingAmplitudeConf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.vmLiveTrackingAmplitudeUnitConf">Vm Live Tracking Amplitude Unit Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.vmLiveTrackingAmplitudeUnitConf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.sarSysSyncCycleConf">Sar Sys Sync Cycle Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.sarSysSyncCycleConf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.sarSysSyncCycleUnitConf">Sar Sys Sync Cycle Unit Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.sarSysSyncCycleUnitConf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.sarSysObjectDisplayName01Conf">Sar Sys Object Display Name 01 Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.sarSysObjectDisplayName01Conf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.sarSysObjectDisplayName02Conf">Sar Sys Object Display Name 02 Conf</span></dt>
+        <dd>
+          <span>{{ configSetting.sarSysObjectDisplayName02Conf }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.createDate">Create Date</span></dt>
+        <dd>
+          <span>{{ configSetting.createDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.createUid">Create Uid</span></dt>
+        <dd>
+          <span>{{ configSetting.createUid }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ configSetting.lastUpdate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="emapApp.configSetting.lastUpdateUid">Last Update Uid</span></dt>
+        <dd>
+          <span>{{ configSetting.lastUpdateUid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/config-setting', configSetting.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

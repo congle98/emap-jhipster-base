@@ -1,0 +1,33 @@
+{
+  "emapApp": {
+    "staticLocation": {
+      "home": {
+        "title": "Static Locations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Static Location",
+        "createOrEditLabel": "Create or edit a Static Location",
+        "notFound": "No Static Locations found"
+      },
+      "created": "A new Static Location is created with identifier {{ param }}",
+      "updated": "A Static Location is updated with identifier {{ param }}",
+      "deleted": "A Static Location is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Static Location {{ id }}?"
+      },
+      "detail": {
+        "title": "Static Location"
+      },
+      "id": "ID",
+      "name": "Name",
+      "mcUserId": "Mc User Id",
+      "address": "Address",
+      "lat": "Lat",
+      "lng": "Lng",
+      "status": "Status",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "emapApp": {
+    "warningRule": {
+      "home": {
+        "title": "Warning Rules",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Warning Rule",
+        "createOrEditLabel": "Create or edit a Warning Rule",
+        "notFound": "No Warning Rules found"
+      },
+      "created": "A new Warning Rule is created with identifier {{ param }}",
+      "updated": "A Warning Rule is updated with identifier {{ param }}",
+      "deleted": "A Warning Rule is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Warning Rule {{ id }}?"
+      },
+      "detail": {
+        "title": "Warning Rule"
+      },
+      "id": "ID",
+      "name": "Name",
+      "mcUserId": "Mc User Id",
+      "delayCheck": "Delay Check",
+      "delayCheckUnit": "Delay Check Unit",
+      "conditionType": "Condition Type",
+      "includeMcCampaignId": "Include Mc Campaign Id",
+      "includeMcTargetId": "Include Mc Target Id",
+      "warningDistance": "Warning Distance",
+      "showWarningCircle": "Show Warning Circle",
+      "showWarningMessage": "Show Warning Message",
+      "warningMessage": "Warning Message",
+      "sendWarningMessageToMc": "Send Warning Message To Mc",
+      "status": "Status",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid"
+    }
+  }
+}

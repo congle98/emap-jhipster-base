@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity WarningRule.
+    -->
+    <changeSet id="20220419151405-1" author="jhipster">
+        <createTable tableName="warning_rule">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="mc_user_id" type="varchar(15)">
+                <constraints nullable="false" />
+            </column>
+            <column name="delay_check" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="delay_check_unit" type="varchar(15)">
+                <constraints nullable="false" />
+            </column>
+            <column name="condition_type" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="include_mc_campaign_id" type="varchar(15)">
+                <constraints nullable="true" />
+            </column>
+            <column name="include_mc_target_id" type="varchar(15)">
+                <constraints nullable="true" />
+            </column>
+            <column name="warning_distance" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="show_warning_circle" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="show_warning_message" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="warning_message" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="send_warning_message_to_mc" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="status" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="create_date" type="${datetimeType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="create_uid" type="varchar(15)">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_update" type="${datetimeType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_update_uid" type="varchar(15)">
+                <constraints nullable="false" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="warning_rule" columnName="create_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="warning_rule" columnName="last_update" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220419151405-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/warning_rule.csv"
+                  separator=";"
+                  tableName="warning_rule"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="name" type="string"/>
+            <column name="mc_user_id" type="string"/>
+            <column name="delay_check" type="numeric"/>
+            <column name="delay_check_unit" type="string"/>
+            <column name="condition_type" type="string"/>
+            <column name="include_mc_campaign_id" type="string"/>
+            <column name="include_mc_target_id" type="string"/>
+            <column name="warning_distance" type="numeric"/>
+            <column name="show_warning_circle" type="boolean"/>
+            <column name="show_warning_message" type="boolean"/>
+            <column name="warning_message" type="string"/>
+            <column name="send_warning_message_to_mc" type="boolean"/>
+            <column name="status" type="boolean"/>
+            <column name="create_date" type="date"/>
+            <column name="create_uid" type="string"/>
+            <column name="last_update" type="date"/>
+            <column name="last_update_uid" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

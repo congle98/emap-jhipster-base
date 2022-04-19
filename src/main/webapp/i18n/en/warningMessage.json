@@ -1,0 +1,34 @@
+{
+  "emapApp": {
+    "warningMessage": {
+      "home": {
+        "title": "Warning Messages",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Warning Message",
+        "createOrEditLabel": "Create or edit a Warning Message",
+        "notFound": "No Warning Messages found"
+      },
+      "created": "A new Warning Message is created with identifier {{ param }}",
+      "updated": "A Warning Message is updated with identifier {{ param }}",
+      "deleted": "A Warning Message is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Warning Message {{ id }}?"
+      },
+      "detail": {
+        "title": "Warning Message"
+      },
+      "id": "ID",
+      "mcUserId": "Mc User Id",
+      "warningDistance": "Warning Distance",
+      "showWarningCircle": "Show Warning Circle",
+      "showWarningMessage": "Show Warning Message",
+      "warningMessage": "Warning Message",
+      "sendWarningMessageToMc": "Send Warning Message To Mc",
+      "createDate": "Create Date",
+      "createUid": "Create Uid",
+      "lastUpdate": "Last Update",
+      "lastUpdateUid": "Last Update Uid",
+      "warningRule": "Warning Rule"
+    }
+  }
+}

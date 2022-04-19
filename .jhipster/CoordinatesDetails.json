@@ -1,0 +1,59 @@
+{
+  "applications": "*",
+  "changelogDate": "20220419151401",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "coordinates_details",
+  "fields": [
+    {
+      "fieldName": "signalConnectionStrength",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createUid",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "15"
+    },
+    {
+      "fieldName": "lastUpdate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastUpdateUid",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "15"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CoordinatesDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "coordinates",
+      "otherEntityRelationshipName": "coordinatesDetails",
+      "ownerSide": true,
+      "relationshipName": "coordinate",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "target",
+      "otherEntityRelationshipName": "coordinatesDetails",
+      "ownerSide": true,
+      "relationshipName": "object",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}

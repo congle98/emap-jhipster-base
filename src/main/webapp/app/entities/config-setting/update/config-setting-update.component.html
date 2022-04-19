@@ -1,0 +1,675 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-config-setting-heading"
+        data-cy="ConfigSettingCreateUpdateHeading"
+        jhiTranslate="emapApp.configSetting.home.createOrEditLabel"
+      >
+        Create or edit a Config Setting
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.sourceType" for="field_sourceType">Source Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sourceType"
+            id="field_sourceType"
+            data-cy="sourceType"
+            formControlName="sourceType"
+          />
+          <div *ngIf="editForm.get('sourceType')!.invalid && (editForm.get('sourceType')!.dirty || editForm.get('sourceType')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sourceType')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sourceType')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.mcUserId" for="field_mcUserId">Mc User Id</label>
+          <input type="text" class="form-control" name="mcUserId" id="field_mcUserId" data-cy="mcUserId" formControlName="mcUserId" />
+          <div *ngIf="editForm.get('mcUserId')!.invalid && (editForm.get('mcUserId')!.dirty || editForm.get('mcUserId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('mcUserId')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.tmlUserId" for="field_tmlUserId">Tml User Id</label>
+          <input type="text" class="form-control" name="tmlUserId" id="field_tmlUserId" data-cy="tmlUserId" formControlName="tmlUserId" />
+          <div *ngIf="editForm.get('tmlUserId')!.invalid && (editForm.get('tmlUserId')!.dirty || editForm.get('tmlUserId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('tmlUserId')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.vmSysDefaultModeConf" for="field_vmSysDefaultModeConf"
+            >Vm Sys Default Mode Conf</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="vmSysDefaultModeConf"
+            id="field_vmSysDefaultModeConf"
+            data-cy="vmSysDefaultModeConf"
+            formControlName="vmSysDefaultModeConf"
+          />
+          <div
+            *ngIf="
+              editForm.get('vmSysDefaultModeConf')!.invalid &&
+              (editForm.get('vmSysDefaultModeConf')!.dirty || editForm.get('vmSysDefaultModeConf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('vmSysDefaultModeConf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('vmSysDefaultModeConf')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.vmSysSyncCycleConf" for="field_vmSysSyncCycleConf"
+            >Vm Sys Sync Cycle Conf</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="vmSysSyncCycleConf"
+            id="field_vmSysSyncCycleConf"
+            data-cy="vmSysSyncCycleConf"
+            formControlName="vmSysSyncCycleConf"
+          />
+          <div
+            *ngIf="
+              editForm.get('vmSysSyncCycleConf')!.invalid &&
+              (editForm.get('vmSysSyncCycleConf')!.dirty || editForm.get('vmSysSyncCycleConf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('vmSysSyncCycleConf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('vmSysSyncCycleConf')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.vmSysSyncCycleUnitConf" for="field_vmSysSyncCycleUnitConf"
+            >Vm Sys Sync Cycle Unit Conf</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="vmSysSyncCycleUnitConf"
+            id="field_vmSysSyncCycleUnitConf"
+            data-cy="vmSysSyncCycleUnitConf"
+            formControlName="vmSysSyncCycleUnitConf"
+          />
+          <div
+            *ngIf="
+              editForm.get('vmSysSyncCycleUnitConf')!.invalid &&
+              (editForm.get('vmSysSyncCycleUnitConf')!.dirty || editForm.get('vmSysSyncCycleUnitConf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('vmSysSyncCycleUnitConf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.vmSysTargetDisplayNameConf" for="field_vmSysTargetDisplayNameConf"
+            >Vm Sys Target Display Name Conf</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="vmSysTargetDisplayNameConf"
+            id="field_vmSysTargetDisplayNameConf"
+            data-cy="vmSysTargetDisplayNameConf"
+            formControlName="vmSysTargetDisplayNameConf"
+          />
+          <div
+            *ngIf="
+              editForm.get('vmSysTargetDisplayNameConf')!.invalid &&
+              (editForm.get('vmSysTargetDisplayNameConf')!.dirty || editForm.get('vmSysTargetDisplayNameConf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('vmSysTargetDisplayNameConf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('vmSysTargetDisplayNameConf')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.vmLiveDefaultModeConf" for="field_vmLiveDefaultModeConf"
+            >Vm Live Default Mode Conf</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="vmLiveDefaultModeConf"
+            id="field_vmLiveDefaultModeConf"
+            data-cy="vmLiveDefaultModeConf"
+            formControlName="vmLiveDefaultModeConf"
+          />
+          <div
+            *ngIf="
+              editForm.get('vmLiveDefaultModeConf')!.invalid &&
+              (editForm.get('vmLiveDefaultModeConf')!.dirty || editForm.get('vmLiveDefaultModeConf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('vmLiveDefaultModeConf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.vmLiveDefaultTimerangeConf" for="field_vmLiveDefaultTimerangeConf"
+            >Vm Live Default Timerange Conf</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="vmLiveDefaultTimerangeConf"
+            id="field_vmLiveDefaultTimerangeConf"
+            data-cy="vmLiveDefaultTimerangeConf"
+            formControlName="vmLiveDefaultTimerangeConf"
+          />
+          <div
+            *ngIf="
+              editForm.get('vmLiveDefaultTimerangeConf')!.invalid &&
+              (editForm.get('vmLiveDefaultTimerangeConf')!.dirty || editForm.get('vmLiveDefaultTimerangeConf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('vmLiveDefaultTimerangeConf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.vmLivePositionCycleConf" for="field_vmLivePositionCycleConf"
+            >Vm Live Position Cycle Conf</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="vmLivePositionCycleConf"
+            id="field_vmLivePositionCycleConf"
+            data-cy="vmLivePositionCycleConf"
+            formControlName="vmLivePositionCycleConf"
+          />
+          <div
+            *ngIf="
+              editForm.get('vmLivePositionCycleConf')!.invalid &&
+              (editForm.get('vmLivePositionCycleConf')!.dirty || editForm.get('vmLivePositionCycleConf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('vmLivePositionCycleConf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('vmLivePositionCycleConf')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.vmLivePositionCycleUnitConf" for="field_vmLivePositionCycleUnitConf"
+            >Vm Live Position Cycle Unit Conf</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="vmLivePositionCycleUnitConf"
+            id="field_vmLivePositionCycleUnitConf"
+            data-cy="vmLivePositionCycleUnitConf"
+            formControlName="vmLivePositionCycleUnitConf"
+          />
+          <div
+            *ngIf="
+              editForm.get('vmLivePositionCycleUnitConf')!.invalid &&
+              (editForm.get('vmLivePositionCycleUnitConf')!.dirty || editForm.get('vmLivePositionCycleUnitConf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('vmLivePositionCycleUnitConf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.vmLiveTrackingAmplitudeConf" for="field_vmLiveTrackingAmplitudeConf"
+            >Vm Live Tracking Amplitude Conf</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="vmLiveTrackingAmplitudeConf"
+            id="field_vmLiveTrackingAmplitudeConf"
+            data-cy="vmLiveTrackingAmplitudeConf"
+            formControlName="vmLiveTrackingAmplitudeConf"
+          />
+          <div
+            *ngIf="
+              editForm.get('vmLiveTrackingAmplitudeConf')!.invalid &&
+              (editForm.get('vmLiveTrackingAmplitudeConf')!.dirty || editForm.get('vmLiveTrackingAmplitudeConf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('vmLiveTrackingAmplitudeConf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('vmLiveTrackingAmplitudeConf')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="emapApp.configSetting.vmLiveTrackingAmplitudeUnitConf"
+            for="field_vmLiveTrackingAmplitudeUnitConf"
+            >Vm Live Tracking Amplitude Unit Conf</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="vmLiveTrackingAmplitudeUnitConf"
+            id="field_vmLiveTrackingAmplitudeUnitConf"
+            data-cy="vmLiveTrackingAmplitudeUnitConf"
+            formControlName="vmLiveTrackingAmplitudeUnitConf"
+          />
+          <div
+            *ngIf="
+              editForm.get('vmLiveTrackingAmplitudeUnitConf')!.invalid &&
+              (editForm.get('vmLiveTrackingAmplitudeUnitConf')!.dirty || editForm.get('vmLiveTrackingAmplitudeUnitConf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('vmLiveTrackingAmplitudeUnitConf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.sarSysSyncCycleConf" for="field_sarSysSyncCycleConf"
+            >Sar Sys Sync Cycle Conf</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="sarSysSyncCycleConf"
+            id="field_sarSysSyncCycleConf"
+            data-cy="sarSysSyncCycleConf"
+            formControlName="sarSysSyncCycleConf"
+          />
+          <div
+            *ngIf="
+              editForm.get('sarSysSyncCycleConf')!.invalid &&
+              (editForm.get('sarSysSyncCycleConf')!.dirty || editForm.get('sarSysSyncCycleConf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sarSysSyncCycleConf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('sarSysSyncCycleConf')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.sarSysSyncCycleUnitConf" for="field_sarSysSyncCycleUnitConf"
+            >Sar Sys Sync Cycle Unit Conf</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="sarSysSyncCycleUnitConf"
+            id="field_sarSysSyncCycleUnitConf"
+            data-cy="sarSysSyncCycleUnitConf"
+            formControlName="sarSysSyncCycleUnitConf"
+          />
+          <div
+            *ngIf="
+              editForm.get('sarSysSyncCycleUnitConf')!.invalid &&
+              (editForm.get('sarSysSyncCycleUnitConf')!.dirty || editForm.get('sarSysSyncCycleUnitConf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sarSysSyncCycleUnitConf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="emapApp.configSetting.sarSysObjectDisplayName01Conf"
+            for="field_sarSysObjectDisplayName01Conf"
+            >Sar Sys Object Display Name 01 Conf</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="sarSysObjectDisplayName01Conf"
+            id="field_sarSysObjectDisplayName01Conf"
+            data-cy="sarSysObjectDisplayName01Conf"
+            formControlName="sarSysObjectDisplayName01Conf"
+          />
+          <div
+            *ngIf="
+              editForm.get('sarSysObjectDisplayName01Conf')!.invalid &&
+              (editForm.get('sarSysObjectDisplayName01Conf')!.dirty || editForm.get('sarSysObjectDisplayName01Conf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sarSysObjectDisplayName01Conf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sarSysObjectDisplayName01Conf')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="emapApp.configSetting.sarSysObjectDisplayName02Conf"
+            for="field_sarSysObjectDisplayName02Conf"
+            >Sar Sys Object Display Name 02 Conf</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="sarSysObjectDisplayName02Conf"
+            id="field_sarSysObjectDisplayName02Conf"
+            data-cy="sarSysObjectDisplayName02Conf"
+            formControlName="sarSysObjectDisplayName02Conf"
+          />
+          <div
+            *ngIf="
+              editForm.get('sarSysObjectDisplayName02Conf')!.invalid &&
+              (editForm.get('sarSysObjectDisplayName02Conf')!.dirty || editForm.get('sarSysObjectDisplayName02Conf')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sarSysObjectDisplayName02Conf')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sarSysObjectDisplayName02Conf')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.createDate" for="field_createDate">Create Date</label>
+          <div class="d-flex">
+            <input
+              id="field_createDate"
+              data-cy="createDate"
+              type="datetime-local"
+              class="form-control"
+              name="createDate"
+              formControlName="createDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('createDate')!.invalid && (editForm.get('createDate')!.dirty || editForm.get('createDate')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createDate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('createDate')?.errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.createUid" for="field_createUid">Create Uid</label>
+          <input type="text" class="form-control" name="createUid" id="field_createUid" data-cy="createUid" formControlName="createUid" />
+          <div *ngIf="editForm.get('createUid')!.invalid && (editForm.get('createUid')!.dirty || editForm.get('createUid')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createUid')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createUid')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.lastUpdate" for="field_lastUpdate">Last Update</label>
+          <div class="d-flex">
+            <input
+              id="field_lastUpdate"
+              data-cy="lastUpdate"
+              type="datetime-local"
+              class="form-control"
+              name="lastUpdate"
+              formControlName="lastUpdate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('lastUpdate')!.invalid && (editForm.get('lastUpdate')!.dirty || editForm.get('lastUpdate')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lastUpdate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('lastUpdate')?.errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="emapApp.configSetting.lastUpdateUid" for="field_lastUpdateUid">Last Update Uid</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastUpdateUid"
+            id="field_lastUpdateUid"
+            data-cy="lastUpdateUid"
+            formControlName="lastUpdateUid"
+          />
+          <div
+            *ngIf="
+              editForm.get('lastUpdateUid')!.invalid && (editForm.get('lastUpdateUid')!.dirty || editForm.get('lastUpdateUid')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lastUpdateUid')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lastUpdateUid')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 15 }"
+            >
+              This field cannot be longer than 15 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

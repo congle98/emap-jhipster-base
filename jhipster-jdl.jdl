@@ -1,0 +1,155 @@
+entity Campaign {
+	sourceType String required maxlength(20)
+    mcCampaingnId String maxlength(15)
+    tmlCampaignId String maxlength(15)
+    icon String maxlength(225)
+    color String maxlength(20)
+    createDate Instant required
+    createUid String required maxlength(15)
+   	lastUpdate Instant required
+    lastUpdateUid String required maxlength(15)
+}
+
+entity Target {
+	sourceType String required maxlength(20)
+    mcCampaingnId String maxlength(15)
+    tmlCampaignId String maxlength(15)
+    icon String maxlength(255)
+    color String maxlength(20)
+    createDate Instant required
+    createUid String required maxlength(15)
+   	lastUpdate Instant required
+    lastUpdateUid String required maxlength(15)
+}
+entity Coordinates {
+	sourceType String required maxlength(20)
+    mcCampaingnId String maxlength(15)
+    tmlCampaignId String maxlength(15)
+    lat String maxlength(15)
+    lng String maxlength(15)
+    radius Double
+    openAngle Integer
+    directionalAngle Integer
+    createDate Instant required
+    createUid String required maxlength(15)
+   	lastUpdate Instant required
+    lastUpdateUid String required maxlength(15)
+}
+entity CoordinatesDetails {
+
+    signalConnectionStrength Integer
+    createDate Instant required
+    createUid String required maxlength(15)
+   	lastUpdate Instant required
+    lastUpdateUid String required maxlength(15)
+}
+entity TrackingList {
+	mcUserId String required
+    type String required
+    createDate Instant required
+    createUid String required maxlength(15)
+   	lastUpdate Instant required
+    lastUpdateUid String required maxlength(15)
+}
+entity TrackingListDetails {
+    createDate Instant required
+    createUid String required maxlength(15)
+   	lastUpdate Instant required
+    lastUpdateUid String required maxlength(15)
+}
+entity StaticLocation {
+	name String required maxlength(255)
+    mcUserId String required maxlength(15)
+    address String required maxlength(255)
+    lat String required maxlength(20)
+    lng String required maxlength(20)
+    status Boolean required
+    createDate Instant required
+    createUid String required maxlength(15)
+   	lastUpdate Instant required
+    lastUpdateUid String required maxlength(15)
+}
+entity WarningRule {
+	name String required maxlength(255)
+    mcUserId String required maxlength(15)
+    delayCheck Integer required
+    delayCheckUnit String required maxlength(15)
+    conditionType String required maxlength(20)
+    includeMcCampaignId String maxlength(15)
+    includeMcTargetId String maxlength(15)
+    warningDistance Integer required
+    showWarningCircle Boolean required
+    showWarningMessage Boolean required
+    warningMessage String maxlength(255)
+   	sendWarningMessageToMc Boolean required
+    status Boolean required
+    createDate Instant required
+    createUid String required maxlength(15)
+   	lastUpdate Instant required
+    lastUpdateUid String required maxlength(15)maxlength(15)
+}
+entity WarningMessage {
+	mcUserId String required maxlength(15)
+    warningDistance String required
+    showWarningCircle Boolean required
+    showWarningMessage Boolean required
+    warningMessage String maxlength(255)
+    sendWarningMessageToMc Boolean required
+    createDate Instant required
+    createUid String required maxlength(15)
+   	lastUpdate Instant required
+    lastUpdateUid String required maxlength(15)
+}
+entity ConfigSetting {
+	sourceType String required maxlength(20)
+    mcUserId String maxlength(15)
+    tmlUserId String maxlength(15)
+    vmSysDefaultModeConf String required maxlength(20)
+    vmSysSyncCycleConf Integer required
+    vmSysSyncCycleUnitConf String required
+    vmSysTargetDisplayNameConf String required maxlength(20)
+    vmLiveDefaultModeConf String required
+    vmLiveDefaultTimerangeConf String required
+	vmLivePositionCycleConf Integer required
+    vmLivePositionCycleUnitConf String required
+    vmLiveTrackingAmplitudeConf Integer required
+    vmLiveTrackingAmplitudeUnitConf String required
+    sarSysSyncCycleConf Integer required
+    sarSysSyncCycleUnitConf String required
+    sarSysObjectDisplayName01Conf String required maxlength(255)
+    sarSysObjectDisplayName02Conf String required maxlength(255)
+    createDate Instant required
+    createUid String required maxlength(15)
+   	lastUpdate Instant required
+    lastUpdateUid String required maxlength(15)
+}
+
+
+relationship OneToOne {
+	TrackingListDetails{trackingList required} to TrackingList ,
+    TrackingListDetails{mcTarget required} to Target
+}
+
+relationship OneToOne {
+	CoordinatesDetails{coordinate required} to Coordinates,
+    CoordinatesDetails{object required} to Target
+}
+relationship OneToOne {
+	WarningMessage{WarningRule required} to WarningRule
+}
+
+
+
+
+// Set pagination options
+paginate Campaign, Target, Coordinates,CoordinatesDetails, TrackingList, TrackingListDetails,StaticLocation, WarningRule, WarningMessage, ConfigSetting with infinite-scroll
+paginate  Campaign, Target, Coordinates,CoordinatesDetails, TrackingList, TrackingListDetails,StaticLocation, WarningRule, WarningMessage, ConfigSetting with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except  Campaign, Target, Coordinates,CoordinatesDetails, TrackingList, TrackingListDetails,StaticLocation, WarningRule, WarningMessage, ConfigSetting
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
